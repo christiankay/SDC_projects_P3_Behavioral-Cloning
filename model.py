@@ -7,7 +7,6 @@ Created on Mon Oct  9 23:39:09 2017
 
 import os
 import csv
-import csv
 import cv2
 import numpy as np
 import tensorflow as tf
