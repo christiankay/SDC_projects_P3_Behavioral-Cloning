@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 
 ### Rubric Points
 
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 
 #### Files Submitted & Code Quality
@@ -48,34 +48,34 @@ The model.py file contains the code for training and saving the convolution neur
 
 
 ---
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 My model consists of a convolution neural network with 8x8, 5x5, 3x3 filter sizes and depths between 16 and 64 (model.py lines 96-104) 
 
 The model includes ELU layers to introduce nonlinearity (code line 97-111) and due to its mean value of zero the activition may provide faster learning rates. The data is also normalized in the model using a Keras lambda layer (code line 93). 
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 The model contains two dropout layers in order to reduce overfitting (model.py lines 107 and 110). 
 
 The model was trained and validated on different data sets (80% training data, 20% validation data) to ensure that the model was not overfitting (code line 24). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 115).
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. After that, the model had problems to stay on track mainly at two different positions. The first position was the first curve before the bridge. The car tended to go straight into the water. After gathering more images within this part of the track, the model is able to follow the track appropriate. The same process was applied for the first left corner after the bridge, where the road lanes on the right side are missing.
 
 For details about how I created the training data, see the next section. 
 
 ---
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 The overall strategy for deriving a model architecture was to use a stack of convolutional layers with non-linear activation functions to extract relevant features from the image data. Fully connected layers were used at the and of the model to connect the convolutional layers with the steering angle / output. 
 
@@ -93,7 +93,7 @@ The model was built by training the model through 5 epochs. For now only models 
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 The final model architecture (model.py lines 96-104) consisted of a convolution neural network with the following layers and layer sizes
 
@@ -104,7 +104,7 @@ The final model architecture (model.py lines 96-104) consisted of a convolution 
 5. 32x3x3
 
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
