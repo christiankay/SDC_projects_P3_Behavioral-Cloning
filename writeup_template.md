@@ -89,7 +89,7 @@ Then I increased the training data set by using also flipped images(vertical) an
 
 The model was built by training the model through 5 epochs. For now only models with this amount of epochs are able to successful drive the track. I have also training models with 3 and 7 epoch both approaches are not feasible.
 
-
+![alt text][image1]
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
