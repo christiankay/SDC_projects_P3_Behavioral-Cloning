@@ -54,7 +54,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 My model consists of a convolution neural network with 8x8, 5x5, 3x3 filter sizes and depths between 16 and 64 (model.py lines 96-104) 
 
-The model includes ELU layers to introduce nonlinearity (code line 97-111) and due to its mean value of zero the activition may provide faster learning rates. The data is also normalized in the model using a Keras lambda layer (code line 93). 
+The model includes ELU layers to introduce nonlinearity (code line 97-111) and due to its mean value of zero the activition function may provide faster learning rates. The data is also normalized in the model using a Keras lambda layer (code line 93). 
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -68,7 +68,7 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. After that, the model had problems to stay on track mainly at two different positions. The first position was the first curve before the bridge. The car tended to go straight into the water. After gathering more images within this part of the track, the model is able to follow the track appropriate. The same process was applied for the first left corner after the bridge, where the road lanes on the right side are missing.
+Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. After that, the model had problems to stay on track mainly at two different positions. The first position was the first curve before the bridge on track one. The car tended to go straight into the water. After gathering more images of this part of the track, the model was able to follow the track appropriate. The same process was applied for the first left corner after the bridge, where the road lanes on the right side are missing.
 
 For details about how I created the training data, see the next section. 
 
@@ -87,7 +87,7 @@ To combat the overfitting, I modified the model so that it had less parameters (
 
 Then I increased the training data set by using also flipped images(vertical) and inverted steering angles. I also created additional image data from the left and right camera of the simulator. In that case, the steering angle was slightly corrected by a constant factor (code lines 53 and 60). 
 
-The model was built by training the model through 5 epochs. For now only models with this amount of epochs are able to successful drive the track. I have also training models with 3 and 7 epoch both approaches are not feasible.
+The model was built by training the model through 5 epochs. For now only models with this amount of epochs are able to successful drive on the track. I have also training models with 3 and 7 epoch both approaches are not feasible.
 
 ![alt text][image1]
 
@@ -97,11 +97,18 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 96-104) consisted of a convolution neural network with the following layers and layer sizes
 
-1. 16x8x8
-2. 16x8x8
-3. 32x5x5
-4. 64x5x5
-5. 32x3x3
+1. convolutional layer: 16x8x8, ELU activation
+2. convolutional layer: 16x8x8, ELU activation
+3. convolutional layer: 32x5x5, ELU activation
+4. convolutional layer: 64x5x5, ELU activation
+5. convolutional layer: 32x3x3, ELU activation
+6. dropout layer (drop 20% of input neurons)
+7. ELU activation
+8. Fully connected layer (512 output neurons)
+9. dropout layer (drop 50% of input neurons)
+10. ELU activation
+11. Fully connected layer (1 output neuron)
+
 
 
 #### 3. Creation of the Training Set & Training Process
